@@ -19,12 +19,25 @@
 //3. since we have audio element we can now play it
 // when key is pressed more than once we dont want for the audtio to fishinsh, we want it to start over
 //4. its time to add animation!
+// animation stays because when clicked we are just adding it but we are never remove it after its done
+// if you use timeout it is safer to keep it only in one place, either css or javascript, to not risk it going out of sync
+//RECAP TIME! What is a click event? Click event is when you click something and it will fire off the event sying someone clicked me
+// Whats happening now? We want the animation fhen finished to reverse back
+// we created a function that removes prievously added playing that in css was doing the animation
 
 window.addEventListener("keydown", function (e) {
   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-  audio.currentTime = 0; // rewind to the start
   if (!audio) return; // stops the entire function
+  audio.currentTime = 0; // rewind to the start
   audio.play();
   key.classList.add("playing");
 });
+
+function removeTransition(e) {
+  if (e.propertyName !== "transform") return; // skip if not transormed
+  this.classList.remove("playing");
+}
+
+const keys = document.querySelectorAll(".key");
+keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
