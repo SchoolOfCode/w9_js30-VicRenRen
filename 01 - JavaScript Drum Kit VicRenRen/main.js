@@ -17,9 +17,11 @@
 // if there is no audio element assosicated with a key we'll get null
 // andded if statement when there is no autio element it stops
 //3. since we have audio element we can now play it
+// when key is pressed more than once we dont want for the audtio to fishinsh, we want it to start over
 
 window.addEventListener("keydown", function (e) {
   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+  audio.currentTime = 0; // rewind to the start
   if (!audio) return; // stops the entire function
   audio.play();
 });
