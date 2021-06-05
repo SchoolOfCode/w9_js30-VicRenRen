@@ -19,8 +19,7 @@
 //3. since we have audio element we can now play it
 
 window.addEventListener("keydown", function (e) {
-  const audio = document.querySelector(`audio[data-key="${e.kayCode}"]`);
+  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
   if (!audio) return; // stops the entire function
-
   audio.play();
 });
