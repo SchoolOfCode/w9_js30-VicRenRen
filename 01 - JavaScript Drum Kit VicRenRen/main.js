@@ -7,7 +7,8 @@
 // The window object represents the browser's window.
 // The window object represents an open window in a browser.
 // funtion(e) -> `e` stands for an event
-//
+// that event tells us all sorts of data, like keyCode
+
 window.addEventListener("keydown", function (e) {
-  console.log(e);
+  console.log(e.keyCode);
 });
