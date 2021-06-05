@@ -13,8 +13,11 @@
 // we are using e.kayCode so when clicked it gives us correct key code
 // remember about quotes!!!
 // its data-key="65" not data-key=65
+// now we are getting coresponding audio element assosiated with pressed keys
+// if there is no audio element assosicated with a key we'll get null
+// andded if statement when there is no autio element it stops
 
 window.addEventListener("keydown", function (e) {
   const audio = document.querySelector(`audio[data-key="${e.kayCode}"]`);
-  console.log(audio);
+  if (!audio) return; // stops the entire function
 });
