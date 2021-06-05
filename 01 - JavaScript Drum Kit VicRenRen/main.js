@@ -16,8 +16,11 @@
 // now we are getting coresponding audio element assosiated with pressed keys
 // if there is no audio element assosicated with a key we'll get null
 // andded if statement when there is no autio element it stops
+//3. since we have audio element we can now play it
 
 window.addEventListener("keydown", function (e) {
   const audio = document.querySelector(`audio[data-key="${e.kayCode}"]`);
   if (!audio) return; // stops the entire function
+
+  audio.play();
 });
