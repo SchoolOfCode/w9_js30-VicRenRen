@@ -24,8 +24,7 @@
 //RECAP TIME! What is a click event? Click event is when you click something and it will fire off the event sying someone clicked me
 // Whats happening now? We want the animation fhen finished to reverse back
 // we created a function that removes prievously added playing that in css was doing the animation
-
-window.addEventListener("keydown");
+//
 
 function playSound(e) {
   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
@@ -43,3 +42,5 @@ function removeTransition(e) {
 
 const keys = document.querySelectorAll(".key");
 keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
+
+window.addEventListener("keydown", playSound);
