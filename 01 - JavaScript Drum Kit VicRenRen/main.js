@@ -8,7 +8,13 @@
 // The window object represents an open window in a browser.
 // funtion(e) -> `e` stands for an event
 // that event tells us all sorts of data, like keyCode
+//2. Now we gotta edit the function so when called we can select an audio element
+//we gonna add an attribute selector and focus on data attribute data-key
+// we are using e.kayCode so when clicked it gives us correct key code
+// remember about quotes!!!
+// its data-key="65" not data-key=65
 
 window.addEventListener("keydown", function (e) {
-  console.log(e.keyCode);
+  const audio = document.querySelector(`audio[data-key="${e.kayCode}"]`);
+  console.log(audio);
 });
